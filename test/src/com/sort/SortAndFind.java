@@ -5,7 +5,7 @@ package com.sort;
  */
 public class SortAndFind {
     public int binarySearch(int[] arr , int from , int to , int key){
-        if(from < 0 || to < 0){
+        if(from < 0 || to < 0 || from > to){
             return -1;
         }
         if(from <= to){
@@ -26,7 +26,7 @@ public class SortAndFind {
     public int binarySearchLoop(int arr[] , int fromIndex , int toIndex , int key){
         int low = fromIndex;
         int high = toIndex - 1;
-        while(low < high){
+        while(low <= high){
             int mid = (low + high) >>> 1;
             int midVal = arr[mid];
             if(midVal > key){
@@ -139,4 +139,6 @@ public class SortAndFind {
             }
         }
     }
+
+    //todo 冒泡 插入 选择 基数 希尔
 }
