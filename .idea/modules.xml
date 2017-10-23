@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/MaiDong/MaiDong.iml" filepath="$PROJECT_DIR$/MaiDong/MaiDong.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PageChanging/PageChanging.iml" filepath="$PROJECT_DIR$/PageChanging/PageChanging.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test/Test.iml" filepath="$PROJECT_DIR$/test/Test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Video/Video.iml" filepath="$PROJECT_DIR$/Video/Video.iml" />
+    </modules>
+  </component>
+</project>
