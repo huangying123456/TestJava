@@ -16,16 +16,16 @@ public class SortAndFind {
         if(from < 0 || to < 0 || from > to){
             return -1;
         }
-        if(from <= to){
-            int middle = (from >>> 1) + (to >>> 1);
-            int temp = arr[middle];
-            if(temp < key){
-                from = middle + 1;
-            }else if(temp > key){
-                to = middle - 1;
-            }else{
-                return middle;
-            }
+        //if from = 7, to = 9, then?
+        //int middle = (from >>> 1) + (to >>> 1);
+        int middle = from + (to - from) >>> 1;
+        int temp = arr[middle];
+        if(temp < key){
+            from = middle + 1;
+        }else if(temp > key){
+            to = middle - 1;
+        }else{
+            return middle;
         }
 
         return binarySearch(arr , from , to , key);
@@ -43,7 +43,7 @@ public class SortAndFind {
         int low = fromIndex;
         int high = toIndex - 1;
         while(low <= high){
-            int mid = (low + high) >>> 1;
+            int mid = low + (high - low) >>> 1;
             int midVal = arr[mid];
             if(midVal > key){
                 high = mid - 1;
@@ -63,9 +63,8 @@ public class SortAndFind {
      * n^2
      */
     public void insertSort(int[] arr){
-        int n = arr.length;
         //第一个元素一定是在正确位置
-        for (int i = 1 ; i < n ; i ++) {
+        for (int i = 1 ; i < arr.length ; i ++) {
             int j = i;
             int target = arr[i];//这个是要被插入的元素
             //确定要插入的位置
@@ -134,7 +133,7 @@ public class SortAndFind {
             for (int i = increment ; i < arr.length ; i ++){
                 int temp = arr[i];//要插入的元素
                 int j = 0;
-                for (j = i - increment ; j >= 0 ; j --){
+                for (j = i - increment ; j >= 0 ; j -= increment){
                     if (temp < arr[j]){
                         arr[j + increment] = arr[j];//说明要插入到j的位置，j要往后稍一稍
                     }else{
@@ -152,7 +151,7 @@ public class SortAndFind {
      * @param start
      * @param end
      * nlog(n) n^2
-     * 由于每次递归都要分配一个额外空间，故有log(n)的空间复杂度
+     * 由于每次递归都要分配几个额外空间，故有log(n)的空间复杂度
      */
     public void quickSort(int[] arr , int start , int end){
         if(start >= end){
@@ -194,7 +193,7 @@ public class SortAndFind {
         if(start > end){
             return;
         }
-        int mid = (start + end) >>> 1;
+        int mid = start + (end - start) >>> 1;
         mergeSort(arr , start , mid);
         mergeSort(arr , mid + 1 , end);
         merge(arr , start , mid , end);
@@ -244,7 +243,7 @@ public class SortAndFind {
         for(int i = (lastIndex - 1) / 2 ; i >= 0 ; i --){
             //这样算出来的i是堆中第一个非叶结点
             int k = i;
-            while (2 * k + 1 < lastIndex){
+            while (2 * k + 1 <= lastIndex){
                 int biggerIndex = 2 * k + 1;//记录子节点中最大的那个节点的位置
                 //判断是否有右节点
                 if(biggerIndex < lastIndex){
@@ -256,7 +255,7 @@ public class SortAndFind {
                 if(arr[k] < arr[biggerIndex]){
                     int temp = arr[k];
                     arr[k] = arr[biggerIndex];
-                    arr[biggerIndex] = arr[k];
+                    arr[biggerIndex] = temp;
 
                     k = biggerIndex;
                 }else{
