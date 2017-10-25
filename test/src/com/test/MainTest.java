@@ -7,10 +7,9 @@ import java.util.*;
  * Created by ListenYoung on 2017/7/10.
  */
 public class MainTest {
+    private int id = 2;
     public static void main(String[] args){
-        List<String> list = null;
-        for (String s : list) {
-            System.out.print("wa");
-        }
+        MainTest mainTest = new MainTest();
+        System.out.print(mainTest.id);
     }
 }

@@ -14,9 +14,9 @@ import java.util.concurrent.atomic.AtomicInteger;
     public void run() {
         while (count > 0) {
             synchronized (this){
-//                if (count > 0){
+               if (count > 0){
                     System.out.println("ticket left : " + --count);
-//                }
+               }
             }
         }
     }
