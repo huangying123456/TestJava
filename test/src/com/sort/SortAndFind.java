@@ -179,7 +179,7 @@ public class SortAndFind {
         }
         arr[first] = temp;
         quickSort(arr , start , first - 1);
-        quickSort(arr , first + 1 , last);
+        quickSort(arr , first + 1 , end);
     }
 
     /**
