@@ -190,7 +190,7 @@ public class SortAndFind {
      * @return t:nlog(n)  s:n + log(n)
      */
     public void mergeSort(int[] arr , int start , int end){
-        if(start > end){
+        if(start >= end){
             return;
         }
         int mid = start + (end - start) >>> 1;
