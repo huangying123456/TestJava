@@ -39,7 +39,7 @@ public class Test {
             System.out.println(id);
         });
 
-
+        System.out.println("dddddddddddddddd     " + (1 >>> 1));
         
     }
 }

@@ -18,7 +18,8 @@ public class SortAndFind {
         }
         //if from = 7, to = 9, then?
         //int middle = (from >>> 1) + (to >>> 1);
-        int middle = from + (to - from) >>> 1;
+        //位运算的优先级是低于+的，没想到啊没想到，这里还有套路
+        int middle = from + ((to - from) >>> 1);
         int temp = arr[middle];
         if(temp < key){
             from = middle + 1;
@@ -43,7 +44,7 @@ public class SortAndFind {
         int low = fromIndex;
         int high = toIndex - 1;
         while(low <= high){
-            int mid = low + (high - low) >>> 1;
+            int mid = low + ((high - low) >>> 1);
             int midVal = arr[mid];
             if(midVal > key){
                 high = mid - 1;
@@ -193,7 +194,7 @@ public class SortAndFind {
         if(start >= end){
             return;
         }
-        int mid = start + (end - start) >>> 1;
+        int mid = start + ((end - start) >>> 1);
         mergeSort(arr , start , mid);
         mergeSort(arr , mid + 1 , end);
         merge(arr , start , mid , end);
